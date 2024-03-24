@@ -1,0 +1,13 @@
+
+.myslide{
+    height: 80vh;
+}
+
+.slide{
+    background-image: url("https://bbdnitm.ac.in/wp-content/uploads/2017/12/01.bbdu-approved-ok.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: calc(50% ) calc(20%);
+   
+ 
+}

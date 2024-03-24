@@ -1,0 +1,13 @@
+const {Schema, model} = require("../connection")
+
+const myschema = new Schema({
+    title: String,
+    description: String,
+    language: String,
+    course: String,
+    year: String,
+    image: String,
+   
+})
+
+module.exports = model("projects", myschema);
