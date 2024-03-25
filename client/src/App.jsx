@@ -18,6 +18,8 @@ import AdminLogin from './components/user/AdminLogin'
 import UserProfile from './components/user/UserProfile'
 import AdminAuth from './auth/AdminAuth'
 import { UserProvider } from './context/UserContext'
+import Detail from './components/user/Detail'
+import About from './components/user/About'
 
 
 const App = () => {
@@ -35,9 +37,11 @@ const App = () => {
             <Route path='signup' element={<Signup />} />
             <Route path='project' element={<Projects />} />
             <Route path='contact' element={<Contact />} />
+            <Route path='about' element={<About />} />
             <Route path='adminsignup' element={<AdminSignup />} />
             <Route path='adminlogin' element={<AdminLogin />} />
             <Route path='userprofile' element={<UserProfile />} />
+            <Route path='detail' element={<Detail/>} />
           </Route>
 
           <Route path='admin' element={<AdminAuth><Admin/></AdminAuth>}>

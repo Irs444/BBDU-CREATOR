@@ -44,10 +44,10 @@ const Navbar = () => {
       <div className="container d-flex flex-wrap justify-content-end">
       
         <div className="text-end">
-          <Link to={"/user/login"} type="button" className="btn btn-outline btn-warning px-4 me-2">
+          <Link to={"/user/login"} type="button" className="btn btn-outline btn-primary px-4 me-2" style={{fontFamily:"initial"}}>
             Login
           </Link>
-          <Link to={"/user/signup"} type="button" className="btn btn-primary">
+          <Link to={"/user/signup"} type="button" className="btn btn-primary" style={{fontFamily:"initial"}}>
             SignUp
           </Link>
         </div>
@@ -78,7 +78,7 @@ const Navbar = () => {
               <ul className="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
                 <li>
                  
-                  <Link to={"/user/home"} href="#" className="nav-link text-white">
+                  <Link to={"/user/home"} href="#" className="nav-link text-white" style={{fontFamily:"initial"}}>
                   <i class="bi bi-house fs-3 me-2 text-white"></i>
                     {/* <svg className="bi d-block mx-auto mb-1" width={24} height={24}>
                 <use xlinkHref="#home" />
@@ -90,7 +90,7 @@ const Navbar = () => {
              
                 <li>
                  
-                  <Link to={"/user/project"} href="#" className="nav-link text-white">
+                  <Link to={"/user/project"} href="#" className="nav-link text-white" style={{fontFamily:"initial"}}>
                   <i class="bi bi-journals fs-3 me-2"></i>
                     {/* <svg className="bi d-block mx-auto mb-1" width={24} height={24}>
                 <use xlinkHref="#table" />
@@ -100,23 +100,23 @@ const Navbar = () => {
                 </li>
                 <li>
                  
-                  <a href="#" className="nav-link text-white">
+                  <Link to={"/user/about"} href="#" className="nav-link text-white" style={{fontFamily:"initial"}}>
                   <i class="bi bi-file-earmark-person fs-3 me-2"></i>
                     {/* <svg className="bi d-block mx-auto mb-1" width={24} height={24}>
                 <use xlinkHref="#table" />
               </svg> */}
                    About
-                  </a>
+                  </Link>
                 </li>
                 <li>
                  
-                  <a href="#" className="nav-link text-white">
+                  <Link to={"/user/contact"} href="#" className="nav-link text-white" style={{fontFamily:"initial"}}>
                   <i class="bi bi-person-lines-fill fs-3 me-2"></i>
                     {/* <svg className="bi d-block mx-auto mb-1" width={24} height={24}>
                 <use xlinkHref="#table" />
               </svg> */}
                    Contact
-                  </a>
+                  </Link>
                 </li>
               
               </ul>
