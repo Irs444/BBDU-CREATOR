@@ -3,33 +3,36 @@ import React from 'react'
 const Detail = () => {
     return (
         <div>
-            <div className="dropdown">
-  <button
-    className="btn btn-secondary dropdown-toggle"
-    type="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    Dropdown button
-  </button>
-  <ul className="dropdown-menu">
-    <li>
-      <a className="dropdown-item" href="#">
-        Action
-      </a>
-    </li>
-    <li>
-      <a className="dropdown-item" href="#">
-        Another action
-      </a>
-    </li>
-    <li>
-      <a className="dropdown-item" href="#">
-        Something else here
-      </a>
-    </li>
-  </ul>
-</div>
+            <>
+  <p className="d-inline-flex gap-1">
+    <a
+      className="btn btn-primary"
+      data-bs-toggle="collapse"
+      href="#collapseExample"
+      role="button"
+      aria-expanded="false"
+      aria-controls="collapseExample"
+    >
+      Link with href
+    </a>
+    <button
+      className="btn btn-primary"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseExample"
+      aria-expanded="false"
+      aria-controls="collapseExample"
+    >
+      Button with data-bs-target
+    </button>
+  </p>
+  <div className="collapse" id="collapseExample">
+    <div className="card card-body">
+      Some placeholder content for the collapse component. This panel is hidden
+      by default but revealed when the user activates the relevant trigger.
+    </div>
+  </div>
+</>
 
         </div>
     )
