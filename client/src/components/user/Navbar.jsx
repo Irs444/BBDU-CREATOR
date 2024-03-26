@@ -44,10 +44,10 @@ const Navbar = () => {
       <div className="container d-flex flex-wrap justify-content-end">
       
         <div className="text-end">
-          <Link to={"/user/login"} type="button" className="btn btn-outline btn-primary px-4 me-2" style={{fontFamily:"initial"}}>
+          <Link to={"/user/login"} type="button" className="btn btn-outline btn-dark px-4 me-2" style={{fontFamily:"initial"}}>
             Login
           </Link>
-          <Link to={"/user/signup"} type="button" className="btn btn-primary" style={{fontFamily:"initial"}}>
+          <Link to={"/user/signup"} type="button" className="btn btn-outline btn-dark" style={{fontFamily:"initial"}}>
             SignUp
           </Link>
         </div>

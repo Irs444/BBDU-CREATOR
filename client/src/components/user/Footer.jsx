@@ -5,7 +5,7 @@ const Footer = () => {
         <div>
             <div className="container-fluid bg-dark ">
                 <footer className="py-3 my-4">
-                    <ul className="nav justify-content-center border-bottom pb-3 mb-3">
+                    <ul className="nav justify-content-center border-bottom pb-3 mb-3" style={{fontFamily:"initial"}}>
                         <li className="nav-item">
                             <a href="#" className="nav-link px-2 text-white">
                                 Home
@@ -32,7 +32,7 @@ const Footer = () => {
                             </a>
                         </li>
                     </ul>
-                    <p className="text-center text-white">© 2024 Company, Inc</p>
+                    <p className="text-center text-white" style={{fontFamily:"initial"}}>© 2024 Company, Inc</p>
                 </footer>
             </div>
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const Projects = () => {
     const [projectList, setProjectList] = useState([]);
@@ -30,7 +31,7 @@ const Projects = () => {
     return (
         <div>
             <div className="container">
-                <div className="row mt-3">
+                <div className="row mt-3 mx-5">
                     <form
                         className="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto w-full "
                         role="search"
@@ -44,29 +45,29 @@ const Projects = () => {
                     </form>
                     <div className="col text-center" style={{ fontFamily: "initial", fontSize: "5rem", color: "teal" }}>All Projects</div>
                 </div>
-                <div className="row  ">
+                <div className="row mx-2 ">
                     <h1 className='py-4' style={{ fontFamily: "initial", fontSize: "2rem", fontWeight: "bold" }}>Filter</h1>
                     <div className=" dropdown col-md-2">
                         <h1 className="dropdowm-toggle py-2" data-bs-toggle="dropdown" aria-expanded="false" style={{ fontFamily: "initial", fontWeight: "bold", fontSize: "20px" }} >Departments</h1>
                         <ul className='dropdowm-menu d-block' style={{ fontFamily: "initial", fontWeight: "bold" }}>
                             <li>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <a href="" className="dropdowm-item">BCA CS</a>
+                                    <input className="form-check-input" type="radio" name='course' value="html" id="bca" />
+                                    <label href="" for="bca" className="dropdowm-item">BCA CS</label>
                                 </div>
 
                             </li>
                             <li>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <a href="" className="dropdowm-item">BCA CS</a>
+                                    <input className="form-check-input" type="radio" name='course' value="css" id="mca" />
+                                    <label href="" for="mca" className="dropdowm-item">BCA CS</label>
                                 </div>
 
                             </li>
                             <li>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <a href="" className="dropdowm-item">BCA CS</a>
+                                    <input className="form-check-input" type="radio" name='course' value="java" id="it" />
+                                    <label href="" for="it" className="dropdowm-item">BCA CS</label>
                                 </div>
 
                             </li>
@@ -75,36 +76,36 @@ const Projects = () => {
                         <ul className='dropdowm-menu d-block' style={{ fontFamily: "initial", fontWeight: "bold" }}>
                             <li>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <a href="" className="dropdowm-item">2023-24</a>
+                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault" />
+                                    <label href="" className="dropdowm-item">2023-24</label>
                                 </div>
 
                             </li>
                             <li>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <a href="" className="dropdowm-item">2022-23</a>
+                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault" />
+                                    <label href="" className="dropdowm-item">2022-23</label>
                                 </div>
 
                             </li>
                             <li>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <a href="" className="dropdowm-item">2021-22</a>
+                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault" />
+                                    <label href="" className="dropdowm-item">2021-22</label>
                                 </div>
 
                             </li>
                             <li>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <a href="" className="dropdowm-item">2020-21</a>
+                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault" />
+                                    <label href="" className="dropdowm-item">2020-21</label>
                                 </div>
 
                             </li>
                             <li>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <a href="" className="dropdowm-item">2019-20</a>
+                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault" />
+                                    <label href="" className="dropdowm-item">2019-20</label>
                                 </div>
 
                             </li>
@@ -117,11 +118,11 @@ const Projects = () => {
                                     return (
                                         <div className="col-md-4 ">
                                             <div className="card shadow">
-                                                <img src={"http://localhost:5000/" + pro.image} alt="" className='card-img-top img-fluid' style={{ height: 200 }} />
+                                                <img src={"http://localhost:5000/" + pro.image} alt="" className='card-img-top' style={{ height: 200 }} />
                                                 <div className="card-body">
                                                     <h1 className='text-center fw-bold' style={{ fontFamily: "initial" }}>{pro.title}</h1>
                                                     <p className='text-center'>{pro.description}</p>
-                                                    <a type='button' className="btn btn-success">View</a>
+                                                    <Link to={"/user/detail/" + pro._id} type='button' className="btn btn-success">View</Link>
 
                                                 </div>
                                             </div>

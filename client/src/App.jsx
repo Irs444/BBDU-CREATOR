@@ -41,7 +41,7 @@ const App = () => {
             <Route path='adminsignup' element={<AdminSignup />} />
             <Route path='adminlogin' element={<AdminLogin />} />
             <Route path='userprofile' element={<UserProfile />} />
-            <Route path='detail' element={<Detail/>} />
+            <Route path='detail/:id' element={<Detail/>} />
           </Route>
 
           <Route path='admin' element={<AdminAuth><Admin/></AdminAuth>}>

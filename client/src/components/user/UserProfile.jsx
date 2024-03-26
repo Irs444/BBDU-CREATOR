@@ -61,29 +61,6 @@ const UserProfile = () => {
   }
 
  
-  //   Swal.fire({
-  //     title: "Are you sure?",
-  //     text: "You won't be able to revert this!",
-  //     icon: "warning",
-  //     showCancelButton: true,
-  //     confirmButtonColor: "#3085d6",
-  //     cancelButtonColor: "#d33",
-  //     confirmButtonText: "Yes, delete it!",
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       Swal.fire("Deleted!", "Your file has been deleted.", "success");
-  //     }
-  //   })
-  //   const res = await fetch(url + "/users1/delete/" + currentUser._id, {
-  //     method: "DELETE",
-  //   });
-  //   if (res.status === 200) {
-  //     sessionStorage.removeItem("user");
-  //     window.location.href = "/";
-  //   }
-  //   return;
-  // };
-
 
   return (
     <div>
