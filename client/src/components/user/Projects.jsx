@@ -116,7 +116,7 @@ const Projects = () => {
                             {
                                 projectList.map((pro) => {
                                     return (
-                                        <div className="col-md-4 ">
+                                        <div className="col col-md-4 ">
                                             <div className="card shadow">
                                                 <img src={"http://localhost:5000/" + pro.image} alt="" className='card-img-top' style={{ height: 200 }} />
                                                 <div className="card-body">
