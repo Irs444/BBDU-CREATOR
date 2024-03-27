@@ -20,6 +20,7 @@ import AdminAuth from './auth/AdminAuth'
 import { UserProvider } from './context/UserContext'
 import Detail from './components/user/Detail'
 import About from './components/user/About'
+import SubmitProject from './components/user/SubmitProject'
 
 
 const App = () => {
@@ -42,6 +43,7 @@ const App = () => {
             <Route path='adminlogin' element={<AdminLogin />} />
             <Route path='userprofile' element={<UserProfile />} />
             <Route path='detail/:id' element={<Detail/>} />
+            <Route path='submitproject' element={<SubmitProject/>}/>
           </Route>
 
           <Route path='admin' element={<AdminAuth><Admin/></AdminAuth>}>

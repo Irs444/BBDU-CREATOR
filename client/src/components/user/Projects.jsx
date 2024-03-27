@@ -11,8 +11,8 @@ const Projects = () => {
 
         const data = await res.json();
         console.log(data);
-        setProjectList(data);
-        setMasterList(data);
+        setProjectList(data.filter(project => project.verified));
+        setMasterList(data.filter(project => project.verified));
     }
 
     useEffect(() => {
@@ -21,11 +21,11 @@ const Projects = () => {
 
     const applySearch = (e) => {
         const inputText = e.target.value;
-    
+
         setProjectList(masterList.filter((project) => {
-          return project.title.toLowerCase().includes(inputText.toLowerCase());
+            return project.title.toLowerCase().includes(inputText.toLowerCase());
         }));
-      }
+    }
 
 
     return (
@@ -116,13 +116,13 @@ const Projects = () => {
                             {
                                 projectList.map((pro) => {
                                     return (
-                                        <div className="col col-md-4 ">
+                                        <div className="col col-md-4 g-3 ">
                                             <div className="card shadow">
                                                 <img src={"http://localhost:5000/" + pro.image} alt="" className='card-img-top' style={{ height: 200 }} />
                                                 <div className="card-body">
                                                     <h1 className='text-center fw-bold' style={{ fontFamily: "initial" }}>{pro.title}</h1>
                                                     <p className='text-center'>{pro.description}</p>
-                                                    <Link to={"/user/detail/" + pro._id} type='button' className="btn btn-success">View</Link>
+                                                    <Link to={"/user/detail/" + pro._id} type='button' className="btn btn-success text-white fs-5" style={{ fontFamily: "initial" }}>View</Link>
 
                                                 </div>
                                             </div>
