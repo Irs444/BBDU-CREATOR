@@ -7,6 +7,7 @@ const myschema = new Schema({
     course: String,
     year: String,
     image: String,
+    verified: {type: Boolean , default: false}
    
 })
 
