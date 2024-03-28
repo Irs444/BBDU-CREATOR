@@ -24,6 +24,7 @@ const Projects = () => {
 
         setProjectList(masterList.filter((project) => {
             return project.title.toLowerCase().includes(inputText.toLowerCase());
+               
         }));
     }
 
@@ -32,6 +33,10 @@ const Projects = () => {
         setProjectList(filteredProjects);
     }
 
+    const filterByYear = (year) => {
+        const filteredProjects = masterList.filter(project => project.year === year);
+        setProjectList(filteredProjects);
+    }
 
     return (
         <div>
@@ -58,7 +63,7 @@ const Projects = () => {
                             <li>
                                 <div class="form-check">
                                     <input className="form-check-input" type="radio" name='course' value="html" id="bca"
-                                     onChange={(e) => filterByDepartment(e.target.value)} />
+                                     onChange={(e) => filterByDepartment('Web Development')} />
                                     <label href="" for="bca" className="dropdowm-item">Web Development</label>
                                 </div>
 
@@ -66,7 +71,7 @@ const Projects = () => {
                             <li>
                                 <div class="form-check">
                                     <input className="form-check-input" type="radio" name='course' value="css" id="mca"
-                                     onChange={(e) => filterByDepartment(e.target.value)} />
+                                     onChange={(e) => filterByDepartment('Data Science')} />
                                     <label href="" for="mca" className="dropdowm-item">Data Science</label>
                                 </div>
 
@@ -74,7 +79,7 @@ const Projects = () => {
                             <li>
                                 <div class="form-check">
                                     <input className="form-check-input" type="radio" name='course' value="java" id="it" 
-                                     onChange={(e) => filterByDepartment(e.target.value)}/>
+                                     onChange={(e) => filterByDepartment('AI')}/>
                                     <label href="" for="it" className="dropdowm-item">AI</label>
                                 </div>
 
@@ -82,7 +87,7 @@ const Projects = () => {
                             <li>
                                 <div class="form-check">
                                     <input className="form-check-input" type="radio" name='course' value="ai" id="ai" 
-                                     onChange={(e) => filterByDepartment(e.target.value)}/>
+                                     onChange={(e) => filterByDepartment('Data Analytics')}/>
                                     <label href="" for="ai" className="dropdowm-item">Data Analytics</label>
                                 </div>
 
@@ -92,39 +97,37 @@ const Projects = () => {
                         <ul className='dropdowm-menu d-block' style={{ fontFamily: "initial", fontWeight: "bold" }}>
                             <li>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault" />
+                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault"
+                                     onChange={(e) => filterByYear('2023-24')}/> 
                                     <label href="" className="dropdowm-item">2023-24</label>
                                 </div>
 
                             </li>
                             <li>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault" />
+                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault"
+                                    onChange={(e) => filterByYear('2022-23')} />
                                     <label href="" className="dropdowm-item">2022-23</label>
                                 </div>
 
                             </li>
                             <li>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault" />
+                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault"
+                                    onChange={(e) => filterByYear('2021-22')} />
                                     <label href="" className="dropdowm-item">2021-22</label>
                                 </div>
 
                             </li>
                             <li>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault" />
-                                    <label href="" className="dropdowm-item">2020-21</label>
-                                </div>
-
-                            </li>
-                            <li>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault" />
+                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault"
+                                    onChange={(e) => filterByYear('2019-20')} />
                                     <label href="" className="dropdowm-item">2019-20</label>
                                 </div>
 
                             </li>
+                           
                         </ul>
                     </div>
                     <div className="col-md-10">
@@ -139,6 +142,7 @@ const Projects = () => {
                                                     <h1 className='text-center fw-bold' style={{ fontFamily: "initial" }}>{pro.title}</h1>
                                                     <p className='text-center'>{pro.description}</p>
                                                     <p className='text-center'>{pro.department}</p>
+                                                    <p className='text-center'>{pro.year}</p>
                                                     <Link to={"/user/detail/" + pro._id} type='button' className="btn btn-success text-white fs-5" style={{ fontFamily: "initial" }}>View</Link>
 
                                                 </div>
