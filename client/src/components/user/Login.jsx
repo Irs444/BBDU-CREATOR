@@ -1,5 +1,4 @@
 import React from 'react'
-
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { enqueueSnackbar } from 'notistack';
@@ -68,10 +67,10 @@ const Login = () => {
         
         <div className="flex min-h-full flex-col justify-center px-6 py-3 lg:px-8">
             <div className="d-flex justify-content-center">
-                <div className="card w-25 pb-4 shadow md:px-5 py-5 my-5">
+                <div className="card w-25 bg-gray-900 pb-4 shadow md:px-5 py-5 my-5">
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
 
-                        <h2 style={{ fontFamily: "initial", color: 'teal' }} className=" fs-2  text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+                        <h2 style={{ fontFamily: "initial" }} className=" fs-2 text-white text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                            Student Login
                         </h2>
                     </div>
@@ -81,7 +80,7 @@ const Login = () => {
                             <div>
                                 <label style={{ fontFamily: "initial" }}
                                     htmlFor="email"
-                                    className=" fw-bold block text-sm font-medium leading-6 text-gray-900"
+                                    className=" fw-bold text-white block text-sm font-medium leading-6 text-gray-900"
                                 >
                                   Email
                                 </label>
@@ -106,7 +105,7 @@ const Login = () => {
                             <div>
                                 <label style={{ fontFamily: "initial" }}
                                     htmlFor="password"
-                                    className=" fw-bold block text-sm font-medium leading-6 text-gray-900"
+                                    className=" fw-bold block text-sm text-white font-medium leading-6 text-gray-900"
                                 >
                                   Password
                                 </label>

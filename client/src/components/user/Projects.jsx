@@ -27,6 +27,11 @@ const Projects = () => {
         }));
     }
 
+    const filterByDepartment = (department) => {
+        const filteredProjects = masterList.filter(project => project.department === department);
+        setProjectList(filteredProjects);
+    }
+
 
     return (
         <div>
@@ -52,22 +57,33 @@ const Projects = () => {
                         <ul className='dropdowm-menu d-block' style={{ fontFamily: "initial", fontWeight: "bold" }}>
                             <li>
                                 <div class="form-check">
-                                    <input className="form-check-input" type="radio" name='course' value="html" id="bca" />
-                                    <label href="" for="bca" className="dropdowm-item">BCA CS</label>
+                                    <input className="form-check-input" type="radio" name='course' value="html" id="bca"
+                                     onChange={(e) => filterByDepartment(e.target.value)} />
+                                    <label href="" for="bca" className="dropdowm-item">Web Development</label>
                                 </div>
 
                             </li>
                             <li>
                                 <div class="form-check">
-                                    <input className="form-check-input" type="radio" name='course' value="css" id="mca" />
-                                    <label href="" for="mca" className="dropdowm-item">BCA CS</label>
+                                    <input className="form-check-input" type="radio" name='course' value="css" id="mca"
+                                     onChange={(e) => filterByDepartment(e.target.value)} />
+                                    <label href="" for="mca" className="dropdowm-item">Data Science</label>
                                 </div>
 
                             </li>
                             <li>
                                 <div class="form-check">
-                                    <input className="form-check-input" type="radio" name='course' value="java" id="it" />
-                                    <label href="" for="it" className="dropdowm-item">BCA CS</label>
+                                    <input className="form-check-input" type="radio" name='course' value="java" id="it" 
+                                     onChange={(e) => filterByDepartment(e.target.value)}/>
+                                    <label href="" for="it" className="dropdowm-item">AI</label>
+                                </div>
+
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input className="form-check-input" type="radio" name='course' value="ai" id="ai" 
+                                     onChange={(e) => filterByDepartment(e.target.value)}/>
+                                    <label href="" for="ai" className="dropdowm-item">Data Analytics</label>
                                 </div>
 
                             </li>
@@ -122,6 +138,7 @@ const Projects = () => {
                                                 <div className="card-body">
                                                     <h1 className='text-center fw-bold' style={{ fontFamily: "initial" }}>{pro.title}</h1>
                                                     <p className='text-center'>{pro.description}</p>
+                                                    <p className='text-center'>{pro.department}</p>
                                                     <Link to={"/user/detail/" + pro._id} type='button' className="btn btn-success text-white fs-5" style={{ fontFamily: "initial" }}>View</Link>
 
                                                 </div>

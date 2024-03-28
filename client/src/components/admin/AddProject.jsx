@@ -47,7 +47,8 @@ const AddProject = () => {
             language: "",
             course: "",
             year: "",
-            image: ""
+            image: "",
+            department: ""
         },
 
         onSubmit: async (values, { resetForm }) => {
@@ -161,6 +162,30 @@ const AddProject = () => {
                                     {
                                         addProjectForm.touched.language &&
                                         <span className="text-danger">{addProjectForm.errors.language}</span>
+                                    }
+                                </div>
+                            </div>
+                            <div>
+                                <label style={{ fontFamily: "initial" }}
+                                    htmlFor="price"
+                                    className=" fw-bold block text-sm font-medium leading-6 text-gray-900"
+                                >
+                                    Department
+                                </label>
+                                <div className="mt-2">
+                                    <input
+                                        id="department"
+                                        value={addProjectForm.values.department}
+                                        onChange={addProjectForm.handleChange}
+                                        name="department"
+                                        type="department"
+                                        autoComplete="price"
+                                        required=""
+                                        className=" outline  outline-1 block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    />
+                                    {
+                                        addProjectForm.touched.department &&
+                                        <span className="text-danger">{addProjectForm.errors.department}</span>
                                     }
                                 </div>
                             </div>
