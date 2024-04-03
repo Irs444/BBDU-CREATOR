@@ -60,7 +60,7 @@ const SideBar = () => {
                         <ListItemPrefix>
                             <PowerIcon className="h-5 w-5" />
                         </ListItemPrefix>
-                        <Link to={"/user/home"} href="" style={{fontFamily:"initial", fontWeight:"bold"}}>Log Out</Link>
+                        <Link to={"/user/adminsignup"} href="" style={{fontFamily:"initial", fontWeight:"bold"}}>Log Out</Link>
                     </ListItem>
                 </List>
             </Card>

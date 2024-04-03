@@ -23,7 +23,8 @@ const Projects = () => {
         const inputText = e.target.value;
 
         setProjectList(masterList.filter((project) => {
-            return project.title.toLowerCase().includes(inputText.toLowerCase());
+            return project.title.toLowerCase().includes(inputText.toLowerCase()) ;
+                   
                
         }));
     }
@@ -122,8 +123,8 @@ const Projects = () => {
                             <li>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault"
-                                    onChange={(e) => filterByYear('2019-20')} />
-                                    <label href="" className="dropdowm-item">2019-20</label>
+                                    onChange={(e) => filterByYear('2020-21')} />
+                                    <label href="" className="dropdowm-item">2020-21</label>
                                 </div>
 
                             </li>

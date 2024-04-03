@@ -1,6 +1,40 @@
+import { useFormik } from 'formik'
+import { enqueueSnackbar } from 'notistack';
 import React from 'react'
+import * as Yup from "yup"
+
+const feedbackSchema = Yup.object().shape({
+  name:Yup.string().required(),
+  email:Yup.string().email().required(),
+  feedback:Yup.string().required()
+});
 
 const About = () => {
+
+  const feedback = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      feedback: ''
+    },
+    onSubmit : async(values, {resetForm}) => {
+      console.log(values);
+      resetForm()
+   const res = await fetch("http://localhost:5000/feedback/add",{
+          method:"POST",
+          body: JSON.stringify(values),
+          headers: {
+            "Content-type" : "application/json"
+          }
+        })
+        if(res.status === 200) {
+          enqueueSnackbar("Feedback sent successfully", {variant:"success"})
+        }else{
+          enqueueSnackbar("Feedback not sent", {variant:"warning" })
+        }
+    },
+    validationSchema: feedbackSchema
+  })
   return (
     <div>
       <div className="container">
@@ -27,21 +61,34 @@ const About = () => {
             <h1 className='text-center fs-1 fw-bold my-3' style={{fontFamily:'initial'}}>Feedback Form</h1>
             <div className='d-flex justify-content-center'>
               <div className="card w-75 p-4 d-flex justify-content-center shadow">
-            <form action="" className=''>
+            <form action="" className='' onSubmit={feedback.handleSubmit}>
               <div className="mb-2">
               <label htmlFor="" className="form-label fw-bold" style={{fontFamily:"initial"}}>Name</label>
-              <input type="text" className="form-control rounded" />
+              <input type="text" 
+              id='name' value={feedback.values.name} onChange={feedback.handleChange} className="form-control rounded" />
+              {
+                feedback.touched.name &&
+                <span className="text-danger">{feedback.errors.name}</span>
+              }
               </div>
               <div className="mb-2">
               <label htmlFor="" className="form-label fw-bold" style={{fontFamily:"initial"}}>Email</label>
-              <input type="email" className="form-control rounded" />
+              <input type="email" id='email' value={feedback.values.email} onChange={feedback.handleChange} className="form-control rounded" />
+              {
+                feedback.touched.email &&
+                <span className="text-danger">{feedback.errors.email}</span>
+              }
               </div>
               <div className="mb-2">
                 <label htmlFor="" className="form-label fw-bold" style={{fontFamily:"initial"}}>Feedback</label>
-                <textarea name="" id="" cols="10" rows="10" className='form-control outline outline-1'></textarea>
+                <textarea name="" id="feedback" value={feedback.values.feedback} onChange={feedback.handleChange} cols="10" rows="10" className='form-control outline outline-1'></textarea>
+                {
+                feedback.touched.feedback &&
+                <span className="text-danger">{feedback.errors.feedback}</span>
+              }
               </div>
               <div className='text-center my-3'>
-                <button className='text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700' style={{fontFamily:"initial"}}>Send Feedback</button>
+                <button type='submit' className='text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700' style={{fontFamily:"initial"}}>Send Feedback</button>
               </div>
             </form>
             </div>
