@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import useUserContext from '../../context/UserContext';
 
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const submit = () => {
+    navigate("/user/submitproject")
+  }
 
   const { loggedIn, logout } = useUserContext();
   console.log(loggedIn);
@@ -26,6 +30,9 @@ const Navbar = () => {
           <div className="text-end">
             <button onClick={logout} type="button" className="btn bg-red-500 hover:bg-red-500 text-white px-4 me-2">
               Logout
+            </button>
+            <button onClick={submit} type="button" className="btn bg-blue-500 hover:bg-blue-500 text-white px-4 me-2">
+              Add Projects
             </button>
 
           </div>

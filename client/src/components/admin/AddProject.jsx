@@ -19,6 +19,7 @@ const projectSchema = Yup.object().shape({
 const AddProject = () => {
 
     const [selProject, setselProject] = useState('');
+    const [project,setProject] = useState('');
 
     const uploadeProject = async (e) => {
         const file = e.target.files[0];
@@ -36,6 +37,24 @@ const AddProject = () => {
         });
 
 
+    }
+
+    const uploadeVideos = async (e) => {
+        const file = e.target.files[0];
+         setselVideo(file);
+        const fd = new FormData();
+        fd.append("myfile", file);
+        fetch("http://localhost:5000/util/uploadfile",{
+            method: "POST",
+            body: fd,
+        }) .then((res) => {
+        if(res.status === 200){
+            console.log("file uploaded");
+            toast.success('File Uploaded!!');
+        }
+        });
+    
+        
     }
 
     const navigate = useNavigate();
@@ -250,7 +269,7 @@ const AddProject = () => {
                                        dark:hover:file:bg-blue-400
                                        "/>
                             </label>
-                            {/* <label className="block">
+                            <label className="block">
                             <label htmlFor='uploade-image' className="sr-only" style={{fontFamily:"initial"}}>Choose profile photo</label>
                             <input onChange={uploadeVideos} type="file" id='update-image' className="block w-full text-sm text-gray-500 
                                        file:me-4 file:py-2 file:px-4
@@ -262,7 +281,7 @@ const AddProject = () => {
                                        dark:file:bg-blue-500
                                        dark:hover:file:bg-blue-400
                                        "/>
-                        </label> */}
+                        </label>
 
                             <div>
                                 <button style={{ fontFamily: "initial" }}

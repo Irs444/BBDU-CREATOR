@@ -30,9 +30,12 @@ const Projects = () => {
     }
 
     const filterByDepartment = (department) => {
+       
         const filteredProjects = masterList.filter(project => project.department === department);
         setProjectList(filteredProjects);
+
     }
+
 
     const filterByYear = (year) => {
         const filteredProjects = masterList.filter(project => project.year === year);
