@@ -98,9 +98,9 @@ const Login = () => {
                 Password
               </label>
               <div className="text-lg">
-                <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                <Link to={"/main/reset-password"} className="font-semibold text-indigo-600 hover:text-indigo-500">
                   Forgot password?
-                </a>
+                </Link>
               </div>
             </div>
             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

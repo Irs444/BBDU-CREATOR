@@ -23,6 +23,7 @@ import Footer from './components/user/Footer'
 import Main from './components/main'
 import UserAuth from './auth/UserAuth'
 import PageNotFound from './components/PageNotFound'
+import ResetPassword from './components/main/ResetPassword'
 
 
 
@@ -42,6 +43,7 @@ const App = () => {
               <Route path='signup' element={<Signup />} />
               <Route path='contact' element={<Contact />} />
               <Route path='about' element={<About />} />
+              <Route path='reset-password' element={<ResetPassword />} />
 
             </Route>
 
