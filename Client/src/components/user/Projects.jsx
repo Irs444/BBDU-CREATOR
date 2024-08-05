@@ -107,16 +107,12 @@ const Projects = () => {
 
     const applySearch = (e) => {
         const inputText = e.target.value;
-
-        setProjectList(masterList.filter((project) => {
+        setProjectList(records.filter((project) => {
             return project.title.toLowerCase().includes(inputText.toLowerCase());
-
-
         }));
     }
 
     const filterByDepartment = (department) => {
-
         const filteredProjects = masterList.filter(project => project.department === department);
         setProjectList(filteredProjects);
 
@@ -129,8 +125,8 @@ const Projects = () => {
     }
 
     return (
-        <div>
-            <div className="container ">
+        <div >
+            <div className="container">
                 <div className="row mt-3 mx-5">
                     <form
                         className="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto w-full "
@@ -144,108 +140,6 @@ const Projects = () => {
                         />
                     </form>
                 </div>
-                {/* <div className="row mx-2 ">
-                    <h1 className='py-4' style={{ fontFamily: "initial", fontSize: "2rem", fontWeight: "bold" }}>Filter</h1>
-                    <div className=" dropdown col-md-2">
-                        <h1 className="dropdowm-toggle py-2" data-bs-toggle="dropdown" aria-expanded="false" style={{ fontFamily: "initial", fontWeight: "bold", fontSize: "20px" }} >Departments</h1>
-                        <ul className='dropdowm-menu d-block' style={{ fontFamily: "initial", fontWeight: "bold" }}>
-                            <li>
-                                <div class="form-check">
-                                    <input className="form-check-input" type="radio" name='course' value="html" id="bca"
-                                     onChange={(e) => filterByDepartment('Web Development')} />
-                                    <label href="" for="bca" className="dropdowm-item">Web Development</label>
-                                </div>
-
-                            </li>
-                            <li>
-                                <div class="form-check">
-                                    <input className="form-check-input" type="radio" name='course' value="css" id="mca"
-                                     onChange={(e) => filterByDepartment('Data Science')} />
-                                    <label href="" for="mca" className="dropdowm-item">Data Science</label>
-                                </div>
-
-                            </li>
-                            <li>
-                                <div class="form-check">
-                                    <input className="form-check-input" type="radio" name='course' value="java" id="it" 
-                                     onChange={(e) => filterByDepartment('AI')}/>
-                                    <label href="" for="it" className="dropdowm-item">AI</label>
-                                </div>
-
-                            </li>
-                            <li>
-                                <div class="form-check">
-                                    <input className="form-check-input" type="radio" name='course' value="ai" id="ai" 
-                                     onChange={(e) => filterByDepartment('Data Analytics')}/>
-                                    <label href="" for="ai" className="dropdowm-item">Data Analytics</label>
-                                </div>
-
-                            </li>
-                        </ul>
-                        <h1 className="dropdowm-toggle pt-4" data-bs-toggle="dropdown" aria-expanded="false" style={{ fontFamily: "initial", fontWeight: "bold", fontSize: "20px" }} >Years</h1>
-                        <ul className='dropdowm-menu d-block' style={{ fontFamily: "initial", fontWeight: "bold" }}>
-                            <li>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault"
-                                     onChange={(e) => filterByYear('2023-24')}/> 
-                                    <label href="" className="dropdowm-item">2023-24</label>
-                                </div>
-
-                            </li>
-                            <li>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault"
-                                    onChange={(e) => filterByYear('2022-23')} />
-                                    <label href="" className="dropdowm-item">2022-23</label>
-                                </div>
-
-                            </li>
-                            <li>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault"
-                                    onChange={(e) => filterByYear('2021-22')} />
-                                    <label href="" className="dropdowm-item">2021-22</label>
-                                </div>
-
-                            </li>
-                            <li>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name='year' value="" id="flexCheckDefault"
-                                    onChange={(e) => filterByYear('2020-21')} />
-                                    <label href="" className="dropdowm-item">2020-21</label>
-                                </div>
-
-                            </li>
-                           
-                        </ul>
-                    </div>
-                    <div className="col-md-10">
-                        <div className="row">
-                            {
-                                projectList.map((pro) => {
-                                    return (
-                                        <div className="col col-md-4 g-3 ">
-                                            <div className="card shadow">
-                                                <img src={"http://localhost:5000/" + pro.image} alt="" className='card-img-top' style={{ height: 200 }} />
-                                                <div className="card-body">
-                                                    <h1 className='text-center fw-bold' style={{ fontFamily: "initial" }}>{pro.title}</h1>
-                                                    <p className='text-center'>{pro.description}</p>
-                                                    <p className='text-center'>{pro.department}</p>
-                                                    <p className='text-center'>{pro.year}</p>
-                                                    <Link to={"/user/detail/" + pro._id} type='button' className="btn btn-success text-white fs-5" style={{ fontFamily: "initial" }}>View</Link>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    )
-                                })
-                            }
-
-                          
-                        </div>
-                    </div>
-                </div> */}
                 <div className="bg-white">
                     <div>
                         {/* Mobile filter dialog */}
@@ -496,15 +390,14 @@ const Projects = () => {
                                             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
                                                 <div className=" grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8 ">
                                                     {records.map((project) => (
-                                                        <div key={project.id} className="group relative border-1 border-gray-500 shadow-lg rounded ">
-                                                            <div className="  aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md  lg:aspect-none group-hover:opacity-75 lg:h-80">
+                                                        <div key={project.id} className="group relative border-gray-500 shadow-lg rounded bg-gray-300 ">
+                                                            <div className="p-2 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md  lg:aspect-none group-hover:opacity-75 lg:h-70">
                                                                 <img
-
                                                                     src={"http://localhost:5000/" + project.image}
                                                                     className="h-full w-full object-cover object-center lg:h-full lg:w-full "
                                                                 />
                                                             </div>
-                                                            <div className="mt-4 flex justify-between px-3">
+                                                            <div className="mt-4  px-3">
                                                                 <div>
                                                                     <h3 className="text-sm font-medium text-gray-900">
                                                                         <a href={project.href}>
@@ -522,7 +415,6 @@ const Projects = () => {
                                                                 </Link>
                                                             </div>
                                                         </div>
-
                                                     ))}
                                                 </div>
                                             </div>
@@ -534,7 +426,7 @@ const Projects = () => {
                         </main>
                     </div>
                 </div>
-                <Pagination  numbers={numbers} currentPage={currentPage} prePage={prePage} nextPage={nextPage} changePage={changePage} recordsPerPage={recordsPerPage}  />
+                <Pagination numbers={numbers} currentPage={currentPage} prePage={prePage} nextPage={nextPage} changePage={changePage} recordsPerPage={recordsPerPage} />
             </div>
         </div>
     )
@@ -542,7 +434,7 @@ const Projects = () => {
 
 export default Projects
 
-const Pagination = ({ numbers, currentPage, prePage, nextPage, changePage, totalItem = 17 , recordsPerPage }) => {
+const Pagination = ({ numbers, currentPage, prePage, nextPage, changePage, totalItem = 17, recordsPerPage }) => {
     return (
         <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
             <div className="flex flex-1 justify-between sm:hidden">
@@ -562,7 +454,7 @@ const Pagination = ({ numbers, currentPage, prePage, nextPage, changePage, total
             <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
                 <div>
                     <p className="text-sm text-gray-700">
-                        Showing <span className="font-medium">{(currentPage -1) * recordsPerPage +1}</span> to <span className="font-medium">{currentPage * recordsPerPage}</span> of{' '}
+                        Showing <span className="font-medium">{(currentPage - 1) * recordsPerPage + 1}</span> to <span className="font-medium">{currentPage * recordsPerPage}</span> of{' '}
                         <span className="font-medium">{totalItem}</span> results
                     </p>
                 </div>
@@ -570,7 +462,7 @@ const Pagination = ({ numbers, currentPage, prePage, nextPage, changePage, total
                     <nav aria-label="Pagination" className="isolate inline-flex -space-x-px rounded-md shadow-sm">
                         <a
 
-                            
+
                             className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
                         >
                             <span className="sr-only">Previous</span>
@@ -591,11 +483,9 @@ const Pagination = ({ numbers, currentPage, prePage, nextPage, changePage, total
                             ))
                         }
 
-
-
                         <a
 
-                            
+
                             className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
                         >
                             <span className="sr-only">Next</span>
